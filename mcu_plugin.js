@@ -2191,7 +2191,7 @@ module.exports = function(RED) {
 
                     publish_stdout(`> cmd.exe ${filename}\n`);
 
-                    let builder = execFile(filename, undefined, runner_options, (err, stdout, stderr) => {
+                    let builder = execFile("cmd.exe", ["/c", filename], runner_options, (err, stdout, stderr) => {
                         if (err) {
                             if (err.code == "ABORT_ERR") {
                                 resolve();
